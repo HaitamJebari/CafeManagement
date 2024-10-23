@@ -38,16 +38,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ItemL = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.Cat = new System.Windows.Forms.ComboBox();
+            this.ItemPrice = new System.Windows.Forms.TextBox();
+            this.ItemName = new System.Windows.Forms.TextBox();
+            this.ItemNum = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemL)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -165,16 +165,19 @@
             this.button3.TabIndex = 15;
             this.button3.Text = "Add ";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // dataGridView1
+            // ItemL
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(667, 119);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(598, 536);
-            this.dataGridView1.TabIndex = 18;
+            this.ItemL.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ItemL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ItemL.Location = new System.Drawing.Point(667, 119);
+            this.ItemL.Name = "ItemL";
+            this.ItemL.RowHeadersWidth = 62;
+            this.ItemL.RowTemplate.Height = 28;
+            this.ItemL.Size = new System.Drawing.Size(598, 536);
+            this.ItemL.TabIndex = 18;
+            this.ItemL.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ItemL_CellContentClick);
             // 
             // label7
             // 
@@ -189,37 +192,41 @@
             this.label7.Text = "X";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // comboBox4
+            // Cat
             // 
-            this.comboBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(300, 341);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(312, 37);
-            this.comboBox4.TabIndex = 23;
-            this.comboBox4.Text = "Category";
+            this.Cat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Cat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cat.FormattingEnabled = true;
+            this.Cat.Items.AddRange(new object[] {
+            "Food",
+            "Beverage"});
+            this.Cat.Location = new System.Drawing.Point(300, 341);
+            this.Cat.Name = "Cat";
+            this.Cat.Size = new System.Drawing.Size(312, 37);
+            this.Cat.TabIndex = 23;
+            this.Cat.Text = "Category";
             // 
-            // textBox1
+            // ItemPrice
             // 
-            this.textBox1.Location = new System.Drawing.Point(466, 429);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(164, 26);
-            this.textBox1.TabIndex = 24;
+            this.ItemPrice.Location = new System.Drawing.Point(466, 429);
+            this.ItemPrice.Name = "ItemPrice";
+            this.ItemPrice.Size = new System.Drawing.Size(164, 26);
+            this.ItemPrice.TabIndex = 24;
             // 
-            // textBox2
+            // ItemName
             // 
-            this.textBox2.Location = new System.Drawing.Point(466, 276);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(164, 26);
-            this.textBox2.TabIndex = 25;
+            this.ItemName.Location = new System.Drawing.Point(466, 276);
+            this.ItemName.Name = "ItemName";
+            this.ItemName.Size = new System.Drawing.Size(164, 26);
+            this.ItemName.TabIndex = 25;
             // 
-            // textBox3
+            // ItemNum
             // 
-            this.textBox3.Location = new System.Drawing.Point(466, 197);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(164, 26);
-            this.textBox3.TabIndex = 26;
+            this.ItemNum.Location = new System.Drawing.Point(466, 197);
+            this.ItemNum.Name = "ItemNum";
+            this.ItemNum.Size = new System.Drawing.Size(164, 26);
+            this.ItemNum.TabIndex = 26;
+            this.ItemNum.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // button5
             // 
@@ -255,12 +262,12 @@
             this.ClientSize = new System.Drawing.Size(1297, 690);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.ItemNum);
+            this.Controls.Add(this.ItemName);
+            this.Controls.Add(this.ItemPrice);
+            this.Controls.Add(this.Cat);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.ItemL);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -274,7 +281,7 @@
             this.Text = "ItemsForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemL)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,12 +299,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView ItemL;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox Cat;
+        private System.Windows.Forms.TextBox ItemPrice;
+        private System.Windows.Forms.TextBox ItemName;
+        private System.Windows.Forms.TextBox ItemNum;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
     }

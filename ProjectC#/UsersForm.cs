@@ -119,12 +119,13 @@ namespace ProjectC_
             else
             {
                 con.Open();
-                string query = "update UsersTbl set Uname = '"+UnameTb.Text+"', Upassword = '"+UpassTb.Text+"',where Uphone = '"+UphoneTb.Text+"'";
+                string query = "update UsersTbl set Uname = '"+UnameTb.Text+"' , Upassword = '"+UpassTb.Text+"'  where Uphone = '" + UphoneTb.Text+"'";
                 SqlCommand cmd = new SqlCommand(query,con);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Update Succefull");
                 con.Close();
                 populate();
+
             }
         }
     }
