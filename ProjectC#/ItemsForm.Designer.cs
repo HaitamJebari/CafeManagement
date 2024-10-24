@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.button2 = new System.Windows.Forms.Button();
@@ -38,7 +42,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.ItemL = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.Cat = new System.Windows.Forms.ComboBox();
             this.ItemPrice = new System.Windows.Forms.TextBox();
@@ -46,6 +49,7 @@
             this.ItemNum = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.ItemL = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ItemL)).BeginInit();
             this.SuspendLayout();
@@ -114,7 +118,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label1.Location = new System.Drawing.Point(897, 84);
+            this.label1.Location = new System.Drawing.Point(899, 77);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(134, 32);
             this.label1.TabIndex = 11;
@@ -166,18 +170,6 @@
             this.button3.Text = "Add ";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // ItemL
-            // 
-            this.ItemL.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ItemL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ItemL.Location = new System.Drawing.Point(667, 119);
-            this.ItemL.Name = "ItemL";
-            this.ItemL.RowHeadersWidth = 62;
-            this.ItemL.RowTemplate.Height = 28;
-            this.ItemL.Size = new System.Drawing.Size(598, 536);
-            this.ItemL.TabIndex = 18;
-            this.ItemL.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ItemL_CellContentClick);
             // 
             // label7
             // 
@@ -240,6 +232,7 @@
             this.button5.TabIndex = 27;
             this.button5.Text = "Edit";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -255,11 +248,55 @@
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // ItemL
+            // 
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            this.ItemL.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.ItemL.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ItemL.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ItemL.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.ItemL.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Uighur", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ItemL.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.ItemL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ItemL.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.ItemL.EnableHeadersVisualStyles = false;
+            this.ItemL.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ItemL.Location = new System.Drawing.Point(672, 125);
+            this.ItemL.Name = "ItemL";
+            this.ItemL.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ItemL.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.ItemL.RowHeadersVisible = false;
+            this.ItemL.RowHeadersWidth = 92;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.ItemL.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.ItemL.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ItemL.RowTemplate.Height = 28;
+            this.ItemL.RowTemplate.ReadOnly = true;
+            this.ItemL.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.ItemL.Size = new System.Drawing.Size(600, 553);
+            this.ItemL.TabIndex = 29;
+            this.ItemL.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ItemL_CellContentClick_1);
+            // 
             // ItemsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1297, 690);
+            this.Controls.Add(this.ItemL);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.ItemNum);
@@ -267,7 +304,6 @@
             this.Controls.Add(this.ItemPrice);
             this.Controls.Add(this.Cat);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.ItemL);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -279,6 +315,7 @@
             this.Name = "ItemsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ItemsForm";
+            this.Load += new System.EventHandler(this.ItemsForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ItemL)).EndInit();
@@ -299,7 +336,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView ItemL;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox Cat;
         private System.Windows.Forms.TextBox ItemPrice;
@@ -307,5 +343,6 @@
         private System.Windows.Forms.TextBox ItemNum;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.DataGridView ItemL;
     }
 }

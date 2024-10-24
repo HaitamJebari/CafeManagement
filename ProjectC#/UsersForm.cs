@@ -96,7 +96,7 @@ namespace ProjectC_
         {
             if (UphoneTb.Text == "")
             {
-                MessageBox.Show("Select The User want to Delete");
+                MessageBox.Show("Select The Item want to Delete");
             }
             else
             {

@@ -18,12 +18,8 @@ namespace ProjectC_
         {
             InitializeComponent();
         }
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""E:\HaitamJebari\My Projects\ProjectC#\Cafedb.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=True");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""E:\HaitamJebari\My Projects\ProjectC#\Cafedb.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;");
 
-        private void label7_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
         void populate()
         {
             con.Open();
@@ -33,8 +29,13 @@ namespace ProjectC_
             var ds = new DataSet();
             sda.Fill(ds);
             ItemL.DataSource = ds.Tables[0];
-            con.Close();    
+            con.Close();
         }
+        private void label7_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void label6_Click(object sender, EventArgs e)
         {
 
@@ -49,7 +50,7 @@ namespace ProjectC_
             else
             {
                 con.Open();
-                string query = "delete from UsersTbl where Uphone = '" + ItemNum.Text + "'";
+                string query = "delete from Itemtb where ItemNumtb = '" + ItemNum.Text + "'";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("User Deleted");
@@ -86,29 +87,57 @@ namespace ProjectC_
 
         private void button3_Click(object sender, EventArgs e)
         {
-            try
+            if (ItemNum.Text == "" || ItemNum.Text == "" || ItemPrice.Text == "")
+            {
+                MessageBox.Show("Fill All the Data");
+            }
+            else
             {
                 con.Open();
                 string query = "insert into Itemtb values ('" + ItemNum.Text + "','" + ItemName.Text + "','" + Cat.SelectedItem.ToString() + "','" + ItemPrice.Text + "')";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("User Succefully Created");
+                con.Close();
                 populate();
             }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("SQL Error: " + ex.Message);
-            }
-            finally
-            {
-                con.Close();
-            }
+
 
         }
 
-        private void ItemL_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+
+        private void ItemL_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            ItemNum.Text = ItemL.SelectedRows[0].Cells[0].Value.ToString();
+            ItemName.Text = ItemL.SelectedRows[0].Cells[1].Value.ToString();
+            Cat.SelectedItem = ItemL.SelectedRows[0].Cells[2].Value.ToString();
+            ItemPrice.Text = ItemL.SelectedRows[0].Cells[3].Value.ToString();
+
+        }
+
+        private void ItemsForm_Load(object sender, EventArgs e)
         {
             populate();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (ItemNum.Text == "" || ItemName.Text == "" || ItemPrice.Text == "")
+            {
+                MessageBox.Show("Fill all The fields");
+            }
+            else
+            {
+                con.Open();
+                string query = "update Itemtb set ItemNumtb = '" + ItemNum.Text + "' , ItemNametb = '" + ItemName.Text + "' , Cattb = '" + Cat.SelectedItem.ToString() + "'  where ItemNumtb = '" + ItemNum.Text + "'";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Update Succefull");
+                con.Close();
+                populate();
+
+            }
         }
     }
 }
