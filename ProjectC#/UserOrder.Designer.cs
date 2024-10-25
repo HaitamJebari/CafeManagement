@@ -45,17 +45,21 @@
             this.Cat = new System.Windows.Forms.ComboBox();
             this.OrderNum = new System.Windows.Forms.TextBox();
             this.SellerName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.OrderAmnt = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.Quantity = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.OrderL = new System.Windows.Forms.DataGridView();
             this.OrdersGV = new System.Windows.Forms.DataGridView();
+            this.ItemsGV = new System.Windows.Forms.DataGridView();
+            this.button5 = new System.Windows.Forms.Button();
+            this.Date = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.OrderL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrdersGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemsGV)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -139,12 +143,13 @@
             this.Cat.Items.AddRange(new object[] {
             "Food",
             "Beverage"});
-            this.Cat.Location = new System.Drawing.Point(278, 74);
+            this.Cat.Location = new System.Drawing.Point(257, 71);
             this.Cat.Name = "Cat";
             this.Cat.Size = new System.Drawing.Size(227, 37);
             this.Cat.TabIndex = 6;
             this.Cat.Text = "Category";
             this.Cat.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.Cat.SelectionChangeCommitted += new System.EventHandler(this.Cat_SelectionChangeCommitted);
             // 
             // OrderNum
             // 
@@ -157,24 +162,25 @@
             // 
             // SellerName
             // 
+            this.SellerName.Enabled = false;
             this.SellerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SellerName.Location = new System.Drawing.Point(292, 187);
             this.SellerName.Name = "SellerName";
             this.SellerName.Size = new System.Drawing.Size(199, 30);
             this.SellerName.TabIndex = 8;
-            this.SellerName.Text = "SellerName";
+            this.SellerName.Text = "Seller";
             // 
-            // label2
+            // OrderAmnt
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label2.Location = new System.Drawing.Point(1079, 641);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(157, 29);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "OrderAmount";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.OrderAmnt.AutoSize = true;
+            this.OrderAmnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OrderAmnt.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.OrderAmnt.Location = new System.Drawing.Point(903, 641);
+            this.OrderAmnt.Name = "OrderAmnt";
+            this.OrderAmnt.Size = new System.Drawing.Size(157, 29);
+            this.OrderAmnt.TabIndex = 9;
+            this.OrderAmnt.Text = "OrderAmount";
+            this.OrderAmnt.Click += new System.EventHandler(this.label2_Click);
             // 
             // button3
             // 
@@ -182,7 +188,7 @@
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button3.Location = new System.Drawing.Point(264, 297);
+            this.button3.Location = new System.Drawing.Point(267, 324);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(262, 43);
             this.button3.TabIndex = 10;
@@ -196,12 +202,13 @@
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button4.Location = new System.Drawing.Point(757, 635);
+            this.button4.Location = new System.Drawing.Point(536, 635);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(254, 43);
             this.button4.TabIndex = 11;
             this.button4.Text = "Place The Order ";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label5
             // 
@@ -217,12 +224,13 @@
             // Quantity
             // 
             this.Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Quantity.Location = new System.Drawing.Point(292, 241);
+            this.Quantity.Location = new System.Drawing.Point(343, 288);
             this.Quantity.Name = "Quantity";
             this.Quantity.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Quantity.Size = new System.Drawing.Size(199, 30);
+            this.Quantity.Size = new System.Drawing.Size(96, 30);
             this.Quantity.TabIndex = 13;
             this.Quantity.Text = "Quantity";
+            this.Quantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -237,14 +245,14 @@
             this.label3.Text = "X";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // OrderL
+            // OrdersGV
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.OrderL.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.OrderL.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.OrderL.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.OrderL.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.OrderL.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.OrdersGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.OrdersGV.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.OrdersGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.OrdersGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.OrdersGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.MenuHighlight;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Uighur", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -252,14 +260,14 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.OrderL.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.OrderL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.OrderL.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.OrderL.EnableHeadersVisualStyles = false;
-            this.OrderL.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.OrderL.Location = new System.Drawing.Point(635, 57);
-            this.OrderL.Name = "OrderL";
-            this.OrderL.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.OrdersGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.OrdersGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.OrdersGV.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.OrdersGV.EnableHeadersVisualStyles = false;
+            this.OrdersGV.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.OrdersGV.Location = new System.Drawing.Point(395, 391);
+            this.OrdersGV.Name = "OrdersGV";
+            this.OrdersGV.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -267,27 +275,27 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.OrderL.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.OrderL.RowHeadersVisible = false;
-            this.OrderL.RowHeadersWidth = 92;
+            this.OrdersGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.OrdersGV.RowHeadersVisible = false;
+            this.OrdersGV.RowHeadersWidth = 92;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.OrderL.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.OrderL.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.OrderL.RowTemplate.Height = 28;
-            this.OrderL.RowTemplate.ReadOnly = true;
-            this.OrderL.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.OrderL.Size = new System.Drawing.Size(601, 283);
-            this.OrderL.TabIndex = 31;
-            this.OrderL.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UList_CellContentClick);
+            this.OrdersGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.OrdersGV.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.OrdersGV.RowTemplate.Height = 28;
+            this.OrdersGV.RowTemplate.ReadOnly = true;
+            this.OrdersGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.OrdersGV.Size = new System.Drawing.Size(750, 232);
+            this.OrdersGV.TabIndex = 32;
+            this.OrdersGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OrdersGV_CellContentClick);
             // 
-            // OrdersGV
+            // ItemsGV
             // 
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.OrdersGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.OrdersGV.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.OrdersGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.OrdersGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.OrdersGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.ItemsGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.ItemsGV.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ItemsGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ItemsGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.ItemsGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.MenuHighlight;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Uighur", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -295,14 +303,14 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.OrdersGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.OrdersGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.OrdersGV.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.OrdersGV.EnableHeadersVisualStyles = false;
-            this.OrdersGV.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.OrdersGV.Location = new System.Drawing.Point(395, 397);
-            this.OrdersGV.Name = "OrdersGV";
-            this.OrdersGV.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.ItemsGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.ItemsGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ItemsGV.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.ItemsGV.EnableHeadersVisualStyles = false;
+            this.ItemsGV.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ItemsGV.Location = new System.Drawing.Point(646, 57);
+            this.ItemsGV.Name = "ItemsGV";
+            this.ItemsGV.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -310,30 +318,85 @@
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.OrdersGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.OrdersGV.RowHeadersVisible = false;
-            this.OrdersGV.RowHeadersWidth = 92;
+            this.ItemsGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.ItemsGV.RowHeadersVisible = false;
+            this.ItemsGV.RowHeadersWidth = 92;
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.OrdersGV.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.OrdersGV.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.OrdersGV.RowTemplate.Height = 28;
-            this.OrdersGV.RowTemplate.ReadOnly = true;
-            this.OrdersGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.OrdersGV.Size = new System.Drawing.Size(750, 232);
-            this.OrdersGV.TabIndex = 32;
+            this.ItemsGV.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.ItemsGV.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ItemsGV.RowTemplate.Height = 28;
+            this.ItemsGV.RowTemplate.ReadOnly = true;
+            this.ItemsGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.ItemsGV.Size = new System.Drawing.Size(601, 283);
+            this.ItemsGV.TabIndex = 34;
+            this.ItemsGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ItemsGV_CellContentClick);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.SystemColors.Highlight;
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.button5.Location = new System.Drawing.Point(502, 71);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(109, 37);
+            this.button5.TabIndex = 35;
+            this.button5.Text = "Refresh";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // Date
+            // 
+            this.Date.AutoSize = true;
+            this.Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Date.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.Date.Location = new System.Drawing.Point(286, 20);
+            this.Date.Name = "Date";
+            this.Date.Size = new System.Drawing.Size(74, 32);
+            this.Date.TabIndex = 48;
+            this.Date.Text = "Date";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label2.Location = new System.Drawing.Point(817, 641);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(80, 29);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "Total :";
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.SystemColors.Highlight;
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.button6.Location = new System.Drawing.Point(1100, 635);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(164, 43);
+            this.button6.TabIndex = 50;
+            this.button6.Text = "View Orders";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // UserOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1297, 690);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.Date);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.ItemsGV);
             this.Controls.Add(this.OrdersGV);
-            this.Controls.Add(this.OrderL);
             this.Controls.Add(this.Quantity);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.OrderAmnt);
             this.Controls.Add(this.SellerName);
             this.Controls.Add(this.OrderNum);
             this.Controls.Add(this.Cat);
@@ -348,8 +411,8 @@
             this.Load += new System.EventHandler(this.UserOrder_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.OrderL)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrdersGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemsGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -365,14 +428,18 @@
         private System.Windows.Forms.ComboBox Cat;
         private System.Windows.Forms.TextBox OrderNum;
         private System.Windows.Forms.TextBox SellerName;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label OrderAmnt;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox Quantity;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView OrderL;
         private System.Windows.Forms.DataGridView OrdersGV;
+        private System.Windows.Forms.DataGridView ItemsGV;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label Date;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button6;
     }
 }

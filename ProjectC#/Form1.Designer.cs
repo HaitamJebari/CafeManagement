@@ -38,8 +38,8 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.UnameTb = new System.Windows.Forms.TextBox();
+            this.PasswordTb = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -151,27 +151,27 @@
             this.label5.TabIndex = 3;
             this.label5.Text = "Password";
             // 
-            // textBox1
+            // UnameTb
             // 
-            this.textBox1.Location = new System.Drawing.Point(207, 197);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(199, 26);
-            this.textBox1.TabIndex = 4;
+            this.UnameTb.Location = new System.Drawing.Point(207, 197);
+            this.UnameTb.Name = "UnameTb";
+            this.UnameTb.Size = new System.Drawing.Size(199, 26);
+            this.UnameTb.TabIndex = 4;
             // 
-            // textBox2
+            // PasswordTb
             // 
-            this.textBox2.Location = new System.Drawing.Point(207, 278);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(199, 26);
-            this.textBox2.TabIndex = 5;
+            this.PasswordTb.Location = new System.Drawing.Point(207, 278);
+            this.PasswordTb.Name = "PasswordTb";
+            this.PasswordTb.Size = new System.Drawing.Size(199, 26);
+            this.PasswordTb.TabIndex = 5;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1173, 545);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.PasswordTb);
+            this.Controls.Add(this.UnameTb);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.linkLabel1);
@@ -202,8 +202,8 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox UnameTb;
+        private System.Windows.Forms.TextBox PasswordTb;
     }
 }
 

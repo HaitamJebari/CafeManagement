@@ -16,7 +16,7 @@ namespace ProjectC_
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UserOrder());
+            Application.Run(new Form1());
         }
     }
 }
