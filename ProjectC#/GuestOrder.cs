@@ -130,7 +130,24 @@ namespace ProjectC_
 
         private void OrderAmnt_Click(object sender, EventArgs e)
         {
-             
+            if (Quantity.Text == "")
+            {
+                MessageBox.Show("What is The Quantity of The Item");
+            }
+            else if (flag == 0)
+            {
+                MessageBox.Show("Select The Product to be ordered");
+            }
+            else
+            {
+                num = num + 1;
+                total = price * Convert.ToInt32(Quantity.Text);
+                table.Rows.Add(num, item, cat, price, total);
+                OrdersGV.DataSource = table;
+                flag = 0;
+            }
+            sum = sum + total;
+            OrderAmnt.Text = "" + sum;
         }
 
         int sum = 0;

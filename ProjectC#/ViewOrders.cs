@@ -60,6 +60,7 @@ namespace ProjectC_
 
         private void OrdersGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            populate();
             if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
             {
                 printDocument1.Print();
