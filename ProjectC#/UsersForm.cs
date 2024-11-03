@@ -18,7 +18,7 @@ namespace ProjectC_
             InitializeComponent();
         }
 
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""E:\HaitamJebari\My Projects\ProjectC#\Cafedb.mdf"";Integrated Security=True;Connect Timeout=30");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\hi\Documents\Cdb.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=false;TrustServerCertificate=True;");
 
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -55,7 +55,7 @@ namespace ProjectC_
         private void button3_Click(object sender, EventArgs e)
         {
             con.Open();
-            string query = "insert into UsersTbl values ('"+UnameTb.Text+ "','"+UphoneTb.Text+"','"+UpassTb.Text+"')";
+            string query = "insert into Userstb values ('"+UnameTb.Text+ "','"+UphoneTb.Text+"','"+UpassTb.Text+"')";
             SqlCommand cmd = new SqlCommand(query,con);
             cmd.ExecuteNonQuery();
             MessageBox.Show("User Succefully Created");
@@ -71,7 +71,7 @@ namespace ProjectC_
         void populate()
         {
             con.Open();
-            string query = "select * from UsersTbl";
+            string query = "select * from Userstb";
             SqlDataAdapter sda = new SqlDataAdapter(query,con);
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
@@ -112,7 +112,7 @@ namespace ProjectC_
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (UphoneTb.Text == "" || UphoneTb.Text == "" || UnameTb.Text == "")
+            if (UphoneTb.Text == "" || UpassTb.Text == "" || UnameTb.Text == "")
             {
                 MessageBox.Show("Fill all The fields");
             }

@@ -109,6 +109,7 @@
             this.button3.TabIndex = 31;
             this.button3.Text = "Close";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button5
             // 
@@ -149,6 +150,10 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // ViewOrders
             // 

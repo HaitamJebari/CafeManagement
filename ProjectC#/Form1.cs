@@ -18,7 +18,7 @@ namespace ProjectC_
         {
             InitializeComponent();
         }
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""E:\HaitamJebari\My Projects\ProjectC#\Cafedb.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\hi\Documents\Cdb.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;");
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -51,7 +51,7 @@ namespace ProjectC_
             else
             {
                 con.Open();
-                SqlDataAdapter sda = new SqlDataAdapter("select count(*) from UsersTbl where Uname ='"+UnameTb.Text+"' and Upassword = '"+PasswordTb.Text+"'",con);  
+                SqlDataAdapter sda = new SqlDataAdapter("select count(*) from Userstb where Uname ='"+UnameTb.Text+"' and Upassword = '"+PasswordTb.Text+"'",con);  
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
                 if (dt.Rows[0][0].ToString()=="1")

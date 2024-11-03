@@ -19,7 +19,7 @@ namespace ProjectC_
             InitializeComponent();
         }
 
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""E:\HaitamJebari\My Projects\ProjectC#\Cafedb.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\hi\Documents\Cdb.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;");
 
         void populate()
         {
@@ -75,6 +75,23 @@ namespace ProjectC_
         {
             FilterByCategory();
 
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString("====My Cafe Software====",new Font("Abeezee",25,FontStyle.Bold),Brushes.Red,new Point(200,40));
+            e.Graphics.DrawString("====Order Summary====", new Font("Abeezee", 25, FontStyle.Bold), Brushes.Red, new Point(208, 70));
+            e.Graphics.DrawString(" Number :" + OrdersGV.SelectedRows[0].Cells[0].Value.ToString(), new Font("Abeezee", 15, FontStyle.Regular), Brushes.Black, new Point(120, 135));
+            e.Graphics.DrawString(" Date :" + OrdersGV.SelectedRows[0].Cells[1].Value.ToString(), new Font("Abeezee", 15, FontStyle.Regular), Brushes.Black, new Point(120, 170));
+            e.Graphics.DrawString(" Seller :" + OrdersGV.SelectedRows[0].Cells[2].Value.ToString(), new Font("Abeezee", 15, FontStyle.Regular), Brushes.Black, new Point(120, 205));
+            e.Graphics.DrawString(" Amount :" + OrdersGV.SelectedRows[0].Cells[3].Value.ToString(), new Font("Abeezee", 15, FontStyle.Regular), Brushes.Black, new Point(120, 240));
+            e.Graphics.DrawString("=====By Haitam=====", new Font("Abeezee", 20, FontStyle.Bold), Brushes.Red, new Point(208, 340));
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();   
         }
     }
 }

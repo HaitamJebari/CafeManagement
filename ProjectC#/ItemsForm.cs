@@ -18,7 +18,7 @@ namespace ProjectC_
         {
             InitializeComponent();
         }
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""E:\HaitamJebari\My Projects\ProjectC#\Cafedb.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\hi\Documents\Cdb.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;");
 
         void populate()
         {
@@ -97,7 +97,7 @@ namespace ProjectC_
                 string query = "insert into Itemtb values ('" + ItemNum.Text + "','" + ItemName.Text + "','" + Cat.SelectedItem.ToString() + "','" + ItemPrice.Text + "')";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("User Succefully Created");
+                MessageBox.Show("Item Succefully Created");
                 con.Close();
                 populate();
             }
